@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en" data-framework="angularjs">
+
+<head>
+  <meta content="width=device-width, user-scalable=no, initial-scale=1" name="viewport"></meta>
+  <meta charset="utf-8"></meta>
+
+  <!-- use shared library - localize -->
+  <script src="shared/js/l10n.js" defer=""></script>
+  
+  <!-- use shared library - MediaDB -->
+  <script src="shared/js/device_storage/enumerate_all.js" defer=""></script>
+  <script src="shared/js/mediadb.js" defer=""></script>
+  <script src="shared/js/lazy_loader.js" defer=""></script>
+  <script src="shared/js/async_storage.js" defer=""></script>
+
+  <!-- user script -->
+  <script src="third/angular.min.js" defer=""></script>
+  <script src="third/angular-route.js" defer=""></script>
+  <script src="js/app.js" defer=""></script>
+  <script src="js/controllers/controller.js" defer=""></script>
+  <script src="js/services/storage.js" defer=""></script>
+</head>
+
+<body ng-app="usemediadb" ng-csp>
+
+  <section id="usemediadbapp" ng-controller="MediaDBCtrl">
+    <header>
+      <h1>MediaDB</h1>
+    </header>
+    <section>
+      <h3>state</h3>
+      <ul>
+        <li>
+          <label>state:</label>
+          <span>{{state}}</span>
+        </li>
+        <li>
+          <label>count:</label>
+          <span>{{itemCount}}</span>
+        </li>
+      </ul>
+      <h3>data</h3>
+      <ul>
+        <li ng-repeat="item in items">
+          <img media-lazy-src="{{item.metadata.picture}}">[{{$index + 1}}] {{item.metadata}}
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <menu>
+        <li>
+          <button ng-click="scan()">scan</button>
+        </li>
+      </menu>
+    </footer>
+  </section>
+
+</body>
+
+</html>

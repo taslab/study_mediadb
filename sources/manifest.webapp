@@ -1,0 +1,23 @@
+{
+  "name": "mediadb-sample",
+  "description": "mediadb-sample",
+  "launch_path": "/index.html",
+  "type": "privileged",
+  "icons": {
+    "16": "/resources/app-icon016.png",
+    "32": "/resources/app-icon032.png",
+    "48": "/resources/app-icon048.png",
+    "64": "/resources/app-icon064.png",
+    "128": "/resources/app-icon128.png"
+  },
+  "developer": {
+    "name": "TAS Design Group",
+    "url": "http://tasdg.co.jp/"
+  },
+  "default_locale": "ja",
+  "permissions": {
+    "device-storage:music": {
+      "access": "readonly"
+    }
+  }
+}
